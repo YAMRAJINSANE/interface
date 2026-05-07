@@ -563,25 +563,22 @@ export function HiFiWireframes() {
             </div>
           </div>
 
-          <div className="overflow-x-auto pb-6">
-            <div className="flex gap-8 min-w-max px-4">
-              {hifiScreens.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <PhoneMockup label={s.label} screen={s.screen} variant="hifi">
-                    {s.component}
-                  </PhoneMockup>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            {hifiScreens.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="flex justify-center"
+              >
+                <PhoneMockup label={s.label} screen={s.screen} variant="hifi">
+                  {s.component}
+                </PhoneMockup>
+              </motion.div>
+            ))}
           </div>
-
-          <p className="text-center text-xs text-gray-500 mt-4">← Scroll to see all 12 key screens →</p>
         </motion.div>
       </div>
     </section>

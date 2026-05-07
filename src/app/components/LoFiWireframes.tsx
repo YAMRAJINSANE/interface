@@ -353,25 +353,22 @@ export function LoFiWireframes() {
             <p className="text-lg text-gray-500">13 key screens — structure & layout before visual design</p>
           </div>
 
-          <div className="overflow-x-auto pb-6">
-            <div className="flex gap-8 min-w-max px-4">
-              {lofiScreens.map((s, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                >
-                  <PhoneMockup label={s.label} screen={s.screen} variant="lofi">
-                    {s.component}
-                  </PhoneMockup>
-                </motion.div>
-              ))}
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-4">
+            {lofiScreens.map((s, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.05 }}
+                className="flex justify-center"
+              >
+                <PhoneMockup label={s.label} screen={s.screen} variant="lofi">
+                  {s.component}
+                </PhoneMockup>
+              </motion.div>
+            ))}
           </div>
-
-          <p className="text-center text-xs text-gray-400 mt-4">← Scroll to see all screens →</p>
         </motion.div>
       </div>
     </section>
